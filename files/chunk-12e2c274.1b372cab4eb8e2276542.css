@@ -534,7 +534,8 @@
   color: #fff;
   background: #4285f4;
   border: 0;
-  border-radius: .1rem;
+/*   border-radius: .1rem; */
+  border-radius: 3px;
   font-size: .15rem;
   -webkit-box-flex: 1;
   -ms-flex: 1;
