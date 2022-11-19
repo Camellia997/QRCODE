@@ -11,6 +11,7 @@
     <a href="http://sao315.com/w/api/saoyisao?redirect_uri=https://xxxx.com/index.html"
       style="width: 250px;margin-top: -90px; z-index: 999;position: sticky;" class="btn btn-outline-info" role="button"
       aria-pressed="true"><i class='dzwfont dzw-saomiao' style="font-size: 25px;"></i>微信扫一扫</a>
+    <input type="text" id="sn">
     <div>
 
       <script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
@@ -18,10 +19,11 @@
       <script>
         $(function () {
           var qr = getQueryString("qrresult");
-          if(qr){
-            alert(qr);
-            window.location.href = 'qrcode.html';
-          }
+          if(qr) document.getElementById("sn").value = qr;
+          // if (qr) {
+          //   alert(qr);
+          //   window.location.href = 'qrcode.html';
+          // }
         })
 
         function getQueryString(name) {
@@ -34,4 +36,3 @@
 </body>
 
 </html>
-
