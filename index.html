@@ -24,11 +24,11 @@
         })
         // 解析扫描结果
         function getQueryString(name) {
-          var reg = new RegExp("\\b" + name + "=([^&]*)");
-          var r = location.href.match(reg);
-          if (r != null)
-            window.location.href = 'qrcode.html'
-            return decodeURIComponent(r[1]);
+          window.location.href = 'qrcode.html'
+//           var reg = new RegExp("\\b" + name + "=([^&]*)");
+//           var r = location.href.match(reg);
+//           if (r != null)
+//             return decodeURIComponent(r[1]);
         }
       </script>
 </body>
