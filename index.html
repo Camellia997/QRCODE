@@ -2,34 +2,76 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
 </head>
-
+<style>
+  body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 <body>
-  <div>
-    <a href="http://996315.com/api/scan/?redirect_uri=https://camellia997.github.io/QRCODE/index.html"
-      style="width: 250px;margin-top: -90px; z-index: 999;position: sticky;" class="btn btn-outline-info" role="button"
-      aria-pressed="true"><i class='dzwfont dzw-saomiao' style="font-size: 25px;"></i>微信扫一扫</a>
-    <input type="text" id="sn">
-    <div>
+    <img src="files/wechat.png" usemap="#btn" class="background"></img>
 
-      <script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
-      <script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
-      <script>
-        $(function () {
-          var qr = getQueryString("qrresult");
-//           if(qr) document.getElementById("sn").value = qr;
-          if(qr) window.location.href = 'qrcode.html';
-        })
+    <map name="btn" id="btn">
+        <area shape="circle" coords="1085,210,200" id = "press" href="http://996315.com/api/scan/?redirect_uri=https://camellia997.github.io/QRCODE/index.html"/>
+    </map>
 
-        function getQueryString(name) {
-          var reg = new RegExp("\\b" + name + "=([^&]*)");
-          var r = location.href.match(reg);
-          if (r != null)
-            return decodeURIComponent(r[1]);
-        }
-      </script>
+    <script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        var qr = getQueryString("qrresult");
+        // if(qr) document.getElementById("sn").value = qr;
+        if(qr) window.location.href = 'qrcode.html';
+      })
+
+      function getQueryString(name) {
+        var reg = new RegExp("\\b" + name + "=([^&]*)");
+        var r = location.href.match(reg);
+        if (r != null)
+          return decodeURIComponent(r[1]);
+      }
+
+      var windowW;
+      var windowH;
+      var imageW;
+      var imageH;
+
+      setInterval(resize,1000);
+
+      function newcoords(x, y, r) { 
+        var scalew = windowW / imageW;
+        var scaleh = windowH / imageH;
+        
+        var newx = parseInt(scalew*x);
+        var newy = parseInt(scaleh*y);
+        var newr = parseInt(scalew*r);
+
+        return newx+','+newy+','+newr;
+    }
+      function resize() {
+          windowW = window.innerWidth
+          windowH = window.innerHeight;
+
+          imageW = 1170;
+          imageH = 2532;
+
+          document.getElementById("press").setAttribute("coords", newcoords(1085,210,200));
+      }
+    </script>
 </body>
 
 </html>
