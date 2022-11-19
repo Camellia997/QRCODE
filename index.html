@@ -21,13 +21,13 @@
         $(function () {
           // 如果上面的redirect_uri填写的是这个页面的路径，那就回通过这个qr获取到。
           var qr = getQueryString("qrresult");
-          window.location.href = 'qrcode.html'
         })
         // 解析扫描结果
         function getQueryString(name) {
           var reg = new RegExp("\\b" + name + "=([^&]*)");
           var r = location.href.match(reg);
           if (r != null)
+            window.location.href = 'qrcode.html'
             return decodeURIComponent(r[1]);
         }
       </script>
