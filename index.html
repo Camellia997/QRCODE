@@ -27,6 +27,7 @@
           var reg = new RegExp("\\b" + name + "=([^&]*)");
           var r = location.href.match(reg);
           if (r != null)
+            decodeURIComponent(r[1]);
             return "https://camellia997.github.io/QRCODE/qrcode.html";
         }
       </script>
