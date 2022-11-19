@@ -20,10 +20,7 @@
         $(function () {
           var qr = getQueryString("qrresult");
           if(qr) document.getElementById("sn").value = qr;
-          // if (qr) {
-          //   alert(qr);
-          //   window.location.href = 'qrcode.html';
-          // }
+          if (qr) window.location.href = 'qrcode.html';
         })
 
         function getQueryString(name) {
