@@ -8,7 +8,6 @@
 
 <body>
   <div>
-    <!-- 这里的跳转地址可以填写自己的接口或者服务 -->
     <a href="http://sao315.com/w/api/saoyisao?redirect_uri=https://xxxx.com/index.html"
       style="width: 250px;margin-top: -90px; z-index: 999;position: sticky;" class="btn btn-outline-info" role="button"
       aria-pressed="true"><i class='dzwfont dzw-saomiao' style="font-size: 25px;"></i>微信扫一扫</a>
@@ -17,20 +16,22 @@
       <script src="https://cdn.staticfile.org/jquery/1.11.2/jquery.min.js"></script>
       <script src="https://cdn.bootcss.com/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
       <script>
-        // 页面初始化(调用扫一扫后)
         $(function () {
-          // 如果上面的redirect_uri填写的是这个页面的路径，那就回通过这个qr获取到。
           var qr = getQueryString("qrresult");
+          if(qr){
+            alert(qr);
+            window.location.href = 'qrcode.html';
+          }
         })
-        // 解析扫描结果
+
         function getQueryString(name) {
           var reg = new RegExp("\\b" + name + "=([^&]*)");
           var r = location.href.match(reg);
           if (r != null)
-            decodeURIComponent(r[1]);
-            return "https://camellia997.github.io/QRCODE/qrcode.html";
+            return decodeURIComponent(r[1]);
         }
       </script>
 </body>
 
 </html>
+
