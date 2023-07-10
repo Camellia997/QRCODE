@@ -1,5 +1,7 @@
 # QRCODE
+
 For BUPT COVID-19 In and Out of Campus
+
 The website can be visited by [https://camellia997.github.io/QRCODE/index.html](https://camellia997.github.io/QRCODE/index.html)
 
 * The function of scanning code can be called by clicking the right-top corner.
